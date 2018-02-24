@@ -19,12 +19,12 @@ function listen(element, eventName) {
         let handler = event => observer.next(event);
 
         // Attach the event handler
-        element.addEventListener(eventName, handler, true);
+        element.addEventListener(eventName, handler);
 
         // Return a cleanup function which will cancel the event stream
         return () => {
             // Detach the event handler from the element
-            element.removeEventListener(eventName, handler, true);
+            element.removeEventListener(eventName, handler);
         };
     });
 }
